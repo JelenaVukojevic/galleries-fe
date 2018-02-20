@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
   				this.router.navigateByUrl('/');
   			},
 		    (err: HttpErrorResponse) => {
-		    	alert(`${err.error}`);
+		    	alert(`${err.error.error}`);
 		    }
   		);
   }

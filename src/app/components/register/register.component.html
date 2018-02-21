@@ -10,7 +10,7 @@
 
     <div class="form-group">
         <label for="first-name">
-           First ame
+           First name
        </label>
         <input #name="ngModel" [(ngModel)]="user.first_name" type="text" required minlength="2" class="form-control" id="first-name" name="first-name">
 
@@ -28,7 +28,7 @@
         <label for="last-name">
            Last name
        </label>
-        <input #name="ngModel" [(ngModel)]="user.last_name" type="text" required minlength="2" class="form-control" id="first-name" name="last-name">
+        <input #name="ngModel" [(ngModel)]="user.last_name" type="text" required minlength="2" class="form-control" id="last-name" name="last-name">
 
         <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
             <div *ngIf="name.errors.required">
@@ -89,6 +89,13 @@
        </label>
         <input #confirmPassword="ngModel" [(ngModel)]="user.confirmPassword" required [class.alert-danger]=" confirmPassword.invalid && confirmPassword.dirty"
             type="password" class="form-control" id="password_confirmation" name="password_confirmation">
+    </div>
+
+    <div>
+      <label>Terms of service</label>
+
+      <input #isAutomatic="ngModel" [(ngModel)]="user.accept_terms" type="checkbox" name="accept_terms" required>
+      <br>
     </div>
 
     <button type="submit" [disabled]="!registerForm.valid || confirmPassword.value !== password.value" class="btn btn-primary">Register</button>

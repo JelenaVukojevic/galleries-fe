@@ -66,8 +66,8 @@ export class AuthService {
 					return o.error(err);
 				}
 			);
-	});
-}
+		});
+	}
 
 
 

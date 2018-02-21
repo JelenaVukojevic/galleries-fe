@@ -9,6 +9,9 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { FormsModule } from '@angular/forms';
 import { SharedModule } from './shared/shared.module';
+import { CreateGalleryComponent } from './components/create-gallery/create-gallery.component';
+import { MyGalleryComponent } from './components/my-gallery/my-gallery.component';
+import { HomepageComponent } from './components/homepage/homepage.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,10 @@ import { SharedModule } from './shared/shared.module';
     LayoutComponent,
     NavBarComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    CreateGalleryComponent,
+    MyGalleryComponent,
+    HomepageComponent
   ],
   imports: [
     BrowserModule,

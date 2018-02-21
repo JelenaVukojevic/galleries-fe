@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, Observer } from 'rxjs';
 import { HttpHeaders } from '@angular/common/http';
+import { User } from '../model/user.model';
 
 @Injectable()
 export class AuthService {
@@ -43,7 +44,31 @@ export class AuthService {
   {
   	window.localStorage.removeItem('loginToken');
   	this.isAuthenticated = false;	
-  }
+	}
+	
+	public register(user: User) {
+		return new Observable((o: Observer<any>) => {
+			this.http.post('http://localhost:8000/api/register', {
+				'first_name': user.firstName,
+				'last_name': user.lastName,
+				'email': user.email,
+				'password': user.password,
+				'password_confirmation': user.confirmPassword,
+			}).subscribe(
+				(data: { token: string }) => {
+					window.localStorage.setItem('loginToken', data.token);
+					this.isAuthenticated = true;
+
+					o.next(data.token);
+					return o.complete();
+				},
+				(err) => {
+					return o.error(err);
+				}
+			);
+	});
+}
+
 
 
 

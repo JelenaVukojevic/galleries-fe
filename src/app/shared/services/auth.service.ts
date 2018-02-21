@@ -3,13 +3,15 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, Observer } from 'rxjs';
 import { HttpHeaders } from '@angular/common/http';
 import { User } from '../model/user.model';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class AuthService {
 
 	public isAuthenticated: boolean;
 
-  constructor(private http: HttpClient) { 
+	constructor(private http: HttpClient,
+							private router: Router) { 
 		this.isAuthenticated = !!window.localStorage.getItem('loginToken');
 	}
 
@@ -43,14 +45,16 @@ export class AuthService {
 	public logout()
   {
   	window.localStorage.removeItem('loginToken');
-  	this.isAuthenticated = false;	
+		this.isAuthenticated = false;
+		this.router.navigateByUrl('/login');
 	}
 	
 	public register(user: User) {
 		return new Observable((o: Observer<any>) => {
+			console.log('eeeeee', user);
 			this.http.post('http://localhost:8000/api/register', {
-				'first_name': user.firstName,
-				'last_name': user.lastName,
+				'firstName': user.firstName,
+				'lastName': user.lastName,
 				'email': user.email,
 				'password': user.password,
 				'password_confirmation': user.confirmPassword,

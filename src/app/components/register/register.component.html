@@ -12,13 +12,13 @@
         <label for="first-name">
            First name
        </label>
-        <input #name="ngModel" [(ngModel)]="user.first_name" type="text" required minlength="2" class="form-control" id="first-name" name="first-name">
+        <input #firstName="ngModel" [(ngModel)]="user.firstName" type="text" required minlength="2" class="form-control" id="first-name" name="first-name">
 
-        <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
-            <div *ngIf="name.errors.required">
+        <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)" class="alert alert-danger">
+            <div *ngIf="firstName.errors.required">
                 Name is required.
             </div>
-            <div *ngIf="name.errors.minlength">
+            <div *ngIf="firstName.errors.minlength">
                 Name must be at least 2 characters long.
             </div>
         </div>
@@ -28,13 +28,13 @@
         <label for="last-name">
            Last name
        </label>
-        <input #name="ngModel" [(ngModel)]="user.last_name" type="text" required minlength="2" class="form-control" id="last-name" name="last-name">
+        <input #lastName="ngModel" [(ngModel)]="user.lastName" type="text" required minlength="2" class="form-control" id="last-name" name="last-name">
 
-        <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
-            <div *ngIf="name.errors.required">
+        <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)" class="alert alert-danger">
+            <div *ngIf="lastName.errors.required">
                 Name is required.
             </div>
-            <div *ngIf="name.errors.minlength">
+            <div *ngIf="lastName.errors.minlength">
                 Name must be at least 2 characters long.
             </div>
         </div>

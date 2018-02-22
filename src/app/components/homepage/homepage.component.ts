@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpErrorResponse } from '@angular/common/http';
+import { GalleryService } from '../../shared/services/gallery.service';
+
 
 @Component({
   selector: 'app-homepage',
@@ -7,7 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomepageComponent implements OnInit {
 
-  constructor() { }
+  private galleries;
+
+  constructor(private galleryService: GalleryService) { 
+    this.galleryService.getGalleries().subscribe(
+      data => {
+        this.galleries = data;
+      },
+      (err: HttpErrorResponse) => {
+        alert(`Backend returned code ${err.status} with message: ${err.error}`);
+      }
+    );
+  }
 
   ngOnInit() {
   }

@@ -21,8 +21,7 @@ export class AuthService {
     	this.http.post('http://localhost:8000/api/login', {
   			'email': email,
   			'password': password
-  	  	})
-	        .subscribe(
+  	  	}).subscribe(
 	          (data: {token: string} ) => {
 							window.localStorage.setItem('loginToken', data.token);
 							this.isAuthenticated = true;
@@ -51,7 +50,6 @@ export class AuthService {
 	
 	public register(user: User) {
 		return new Observable((o: Observer<any>) => {
-			console.log('eeeeee', user);
 			this.http.post('http://localhost:8000/api/register', {
 				'firstName': user.firstName,
 				'lastName': user.lastName,

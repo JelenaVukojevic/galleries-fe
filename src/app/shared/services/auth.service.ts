@@ -14,6 +14,8 @@ export class AuthService {
 	constructor(private http: HttpClient,
 							private router: Router) { 
 		this.isAuthenticated = !!window.localStorage.getItem('loginToken');
+		this.user = JSON.parse(window.localStorage.getItem('user'));
+
 	}
 
   login(email: string, password: string)
@@ -59,9 +61,9 @@ export class AuthService {
 				'password_confirmation': user.confirmPassword,
 			}).subscribe(
 				(data: { token: string }) => {
-					window.localStorage.setItem('loginToken', data.token);
+					window.localStorage.setItem('user', JSON.stringify(data));
 					this.isAuthenticated = true;
-
+					this.user = user;
 					o.next(data.token);
 					return o.complete();
 				},

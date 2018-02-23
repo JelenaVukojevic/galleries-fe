@@ -1,5 +1,6 @@
 export class User
 {
+  public id = 0;
   public firstName = '';
   public lastName = '';
   public email = '';
@@ -7,6 +8,7 @@ export class User
   public confirmPassword = '';
 
   constructor( data ?: {
+    id ? : number,
     firstName ?: string,
     lastName ?: string,
     email ?: string,

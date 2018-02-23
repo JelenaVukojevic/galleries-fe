@@ -73,7 +73,8 @@ export class GalleryService {
                         comments.id,
                         comments.content,
                         comments.gallery_id,
-                        comments.user_id);
+                        comments.user_id,
+                        comments.user);
                     this.comments.push(comment);
                     o.next(this.comments);
                     return o.complete();

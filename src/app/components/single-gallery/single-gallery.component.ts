@@ -50,6 +50,7 @@ export class SingleGalleryComponent implements OnInit {
         delete this.comment.id;
 
         this.galleryService.addComment(this.comment).subscribe((data) => {
+            console.log(data);
             this.comments=data;
         });
     }

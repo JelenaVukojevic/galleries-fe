@@ -7,6 +7,7 @@ import { Observable, Observer } from 'rxjs';
 export class GalleryService {
 
   private galleries;
+  private gallery;
 
   constructor(private http: HttpClient,
               private authService: AuthService) { }
@@ -24,5 +25,21 @@ export class GalleryService {
         });
     });
   }
+
+  public getSingleGallery(id) {
+    this.gallery = [];
+    return new Observable((o: Observer<any>) => {
+        this.http.get('http://localhost:8000/api/galleries/'+id, {
+            headers: this.authService.getRequestHeaders()
+        }).subscribe((gallery: any[]) => {
+    
+            this.gallery = gallery;
+    
+    
+            o.next(this.gallery);
+            return o.complete();
+        });
+    });
+    }
 
 }

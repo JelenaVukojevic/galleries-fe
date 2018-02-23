@@ -12,6 +12,7 @@ import { SharedModule } from './shared/shared.module';
 import { CreateGalleryComponent } from './components/create-gallery/create-gallery.component';
 import { MyGalleryComponent } from './components/my-gallery/my-gallery.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
+import { SingleGalleryComponent } from './single-gallery/single-gallery.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { HomepageComponent } from './components/homepage/homepage.component';
     RegisterComponent,
     CreateGalleryComponent,
     MyGalleryComponent,
-    HomepageComponent
+    HomepageComponent,
+    SingleGalleryComponent
   ],
   imports: [
     BrowserModule,

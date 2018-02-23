@@ -7,7 +7,7 @@ import { AuthGuard } from './shared/guards/auth.guard';
 import { CreateGalleryComponent } from './components/create-gallery/create-gallery.component';
 import { MyGalleryComponent } from './components/my-gallery/my-gallery.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
-import { SingleGalleryComponent } from './single-gallery/single-gallery.component';
+import { SingleGalleryComponent } from './components/single-gallery/single-gallery.component';
 
 
 const appRoutes: Routes = [
@@ -17,7 +17,7 @@ const appRoutes: Routes = [
     { path: 'register', component: RegisterComponent },
     { path: 'create', component: CreateGalleryComponent, canActivate: [ AuthGuard ] },
     { path: 'my-galleries', component: MyGalleryComponent, canActivate: [ AuthGuard ] },
-    { path: 'galleries/:id', component: SingleGalleryComponent, canActivate: [ AuthGuard ] }
+    { path: 'galleries/:id', component: SingleGalleryComponent, canActivate: [ AuthGuard ] },
 ];
 
 @NgModule({

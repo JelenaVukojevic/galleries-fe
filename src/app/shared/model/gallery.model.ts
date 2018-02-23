@@ -5,7 +5,7 @@ export class Gallery {
     images;
     author_id;
     
-    constructor( id: number , title: string, description: string, images: string,  author_id: number) {
+    constructor( id: number , title: string, description: string, images: any,  author_id: number) {
         this.id = id;
         this.title = title;
         this.description = description;

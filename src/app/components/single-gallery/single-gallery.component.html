@@ -1,7 +1,5 @@
 <h1>{{gallery.title}}</h1>
-<em><a href="/author/{{gallery.user?.id}}">
-    {{gallery.user?.first_name}} {{gallery.user?.last_name}}
-</a></em><br />
+<h3>{{gallery.user?.first_name}} {{gallery.user?.last_name}}</h3><br />
 <sub>{{gallery.created_at| date:'dd.MM.yyyy.'}}</sub>
 <p>{{gallery.description}}</p>
 
@@ -37,10 +35,9 @@
 </form>
 
 <div *ngFor="let comment of comments.slice().reverse()" class="card border-light mb-3">
-    <div class="card-header">{{comment?.user?.first_name}} {{comment?.user?.last_name}}
-        <button *ngIf="auth.isAuthenticated" class="btn btn-secundary" (click)="removeComment(comment)" >Delete comment</button>
-    </div>
+    <div class="card-header">{{comment?.user?.first_name}} {{comment?.user?.last_name}}</div>
     <div class="card-body">
         <p class="card-text">{{comment?.content}}</p>
     </div>
+    <button *ngIf="auth.isAuthenticated" class="btn btn-secundary" (click)="removeComment(comment)" >Delete comment</button>
 </div>

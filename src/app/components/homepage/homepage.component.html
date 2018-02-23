@@ -3,13 +3,13 @@
       <a href="galleries/{{gallery.id}}">
         {{ gallery.title }}
       </a>
-    </h3>
+    </h3><br>
   <div class="card-body">
-    <h5>{{ gallery.user?.first_name}} {{ gallery.user?.last_name}}</h5>
+    <h5>{{ gallery.user?.first_name}} {{ gallery.user?.last_name}}</h5><br>
     <h6 class="card-title">Description</h6>
-    <p class="card-subtitle text-muted">{{ gallery.description }}</p>
-    <img style="height: 200px; display: block" src="{{ gallery.images[0]?.image_url }}" alt="image">
-    <p class="card-text">{{ gallery.created_at }}</p>
+    <p class="card-subtitle text-muted">{{ gallery.description }}</p><br>
+    <img style="height: 200px; display: block" src="{{ gallery.images[0]?.image_url }}" alt="image"><br>
+    <p class="card-text">{{ gallery.created_at | date:'dd.MM.yyyy.'}}</p>
 </div>
 <div *ngIf="galleries ===0">
   We appologize. There are no galleries to display at this moment.
